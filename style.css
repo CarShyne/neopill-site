@@ -1,74 +1,72 @@
-/* FORCE canvas behind everything */
-#matrix {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -9999 !important;
-    background: black;
-    pointer-events: none !important;
-}
-
-/* General page */
-body {
+/* Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* MOBILE-FRIENDLY fullscreen */
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    font-family: "Orbitron", sans-serif;
+}
+
+/* Matrix Canvas */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: block;
+    z-index: -1;
     background: black;
-    font-family: 'Orbitron', sans-serif;
-    color: white;
-    text-align: center;
-    overflow-x: hidden;
 }
 
-/* Container sits ABOVE canvas */
+/* Content */
 .container {
-    position: relative;
-    z-index: 9999; /* slam it on top */
-    padding-top: 20vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
 }
 
-/* Pill logo */
+/* Logo */
 .logo {
     width: 200px;
-    height: auto;
-    margin-bottom: 20px;
+    max-width: 70vw;
     filter: drop-shadow(0 0 25px #ff00ff);
+    animation: pulse 2.5s infinite ease-in-out;
 }
 
+@keyframes pulse {
+    0%, 100% { filter: drop-shadow(0 0 25px #ff00ff); }
+    50% { filter: drop-shadow(0 0 40px #ff33ff); }
+}
+
+/* Text */
 h1 {
-    font-size: 60px;
+    font-size: 2.8rem;
+    margin-top: 20px;
     color: #ff00ff;
-    text-shadow: 0 0 25px #ff00ff;
-    margin: 0;
 }
 
 .tagline {
-    font-size: 22px;
+    font-size: 1.2rem;
     margin-top: 10px;
-    color: #ffffffcc;
 }
 
-/* Mint */
 .mint {
-    font-size: 18px;
-    margin-top: 25px;
+    margin-top: 20px;
+    font-size: 1rem;
 }
 
 .address {
-    display: inline-block;
-    margin-top: 8px;
-    font-family: monospace;
-    color: #ffe6ff;
-    text-shadow: 0 0 12px #ff00ff;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 42px;
-    }
-    .logo {
-        width: 150px;
-    }
+    color: #ffccff;
+    font-size: 0.9rem;
 }
