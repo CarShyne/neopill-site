@@ -17,19 +17,16 @@ for (let i = 0; i < columns; i++) {
 }
 
 function draw() {
-  // Fade effect for trailing
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "#ff00ff"; // NEON PINK
+  ctx.fillStyle = "#ff00ff";
   ctx.font = fontSize + "px monospace";
 
   for (let i = 0; i < drops.length; i++) {
     const text = binary.charAt(Math.floor(Math.random() * binary.length));
-
     ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-    // Reset randomly
     if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
       drops[i] = 0;
     }
