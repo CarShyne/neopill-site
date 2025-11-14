@@ -1,15 +1,16 @@
-/* ✔ Neon Matrix Canvas (BEHIND EVERYTHING) */
+/* FORCE canvas behind everything */
 #matrix {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;   /* <-- THE FIX */
+    z-index: -9999 !important;
     background: black;
+    pointer-events: none !important;
 }
 
-/* Page layout */
+/* General page */
 body {
     margin: 0;
     padding: 0;
@@ -20,10 +21,10 @@ body {
     overflow-x: hidden;
 }
 
-/* Content Container (ON TOP) */
+/* Container sits ABOVE canvas */
 .container {
     position: relative;
-    z-index: 5;    /* <-- THE OTHER FIX */
+    z-index: 9999; /* slam it on top */
     padding-top: 20vh;
 }
 
@@ -32,10 +33,9 @@ body {
     width: 200px;
     height: auto;
     margin-bottom: 20px;
-    filter: drop-shadow(0 0 20px #ff00ff);
+    filter: drop-shadow(0 0 25px #ff00ff);
 }
 
-/* Title */
 h1 {
     font-size: 60px;
     color: #ff00ff;
@@ -43,14 +43,13 @@ h1 {
     margin: 0;
 }
 
-/* Tagline */
 .tagline {
     font-size: 22px;
     margin-top: 10px;
     color: #ffffffcc;
 }
 
-/* Mint address */
+/* Mint */
 .mint {
     font-size: 18px;
     margin-top: 25px;
