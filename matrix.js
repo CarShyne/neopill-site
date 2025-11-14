@@ -1,7 +1,9 @@
+// Pink Matrix Rain (NEO PILL Edition)
+
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
-// Resize to FULLSCREEN for all devices
+// Auto-resize to full screen
 function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -9,35 +11,35 @@ function resize() {
 resize();
 window.addEventListener("resize", resize);
 
-// Binary characters
-const chars = "01".split("");
-const fontSize = 16;
-const columns = Math.floor(canvas.width / fontSize);
+// Characters (binary)    
+const letters = "010101101001001011001011010".split("");
 
-let drops = [];
-for (let i = 0; i < columns; i++) drops[i] = 1;
+let fontSize = 18;
+let columns = Math.floor(window.innerWidth / fontSize);
 
-// Animation loop
+// Drops (one per column)
+let drops = new Array(columns).fill(1);
+
 function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+    // Shadow fade to create trailing effect
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = "#ff00ff";
     ctx.font = fontSize + "px monospace";
 
     for (let i = 0; i < drops.length; i++) {
-        const char = chars[Math.floor(Math.random() * chars.length)];
+        const char = letters[Math.floor(Math.random() * letters.length)];
+
         ctx.fillText(char, i * fontSize, drops[i] * fontSize);
 
-        // Reset drop randomly
+        // Reset drop randomly at bottom
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
             drops[i] = 0;
         }
 
         drops[i]++;
     }
-
-    requestAnimationFrame(draw);
 }
 
-draw();
+setInterval(draw, 33);
