@@ -1,11 +1,11 @@
-/* Background canvas for neon matrix */
+/* ✔ Neon Matrix Canvas (BEHIND EVERYTHING) */
 #matrix {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
+    z-index: -1;   /* <-- THE FIX */
     background: black;
 }
 
@@ -20,10 +20,11 @@ body {
     overflow-x: hidden;
 }
 
-/* Container */
+/* Content Container (ON TOP) */
 .container {
     position: relative;
-    top: 18vh;
+    z-index: 5;    /* <-- THE OTHER FIX */
+    padding-top: 20vh;
 }
 
 /* Pill logo */
@@ -34,7 +35,7 @@ body {
     filter: drop-shadow(0 0 20px #ff00ff);
 }
 
-/* NEO PILL title */
+/* Title */
 h1 {
     font-size: 60px;
     color: #ff00ff;
@@ -49,7 +50,7 @@ h1 {
     color: #ffffffcc;
 }
 
-/* Mint address block */
+/* Mint address */
 .mint {
     font-size: 18px;
     margin-top: 25px;
@@ -63,7 +64,7 @@ h1 {
     text-shadow: 0 0 12px #ff00ff;
 }
 
-/* Mobile font scaling */
+/* Mobile */
 @media (max-width: 600px) {
     h1 {
         font-size: 42px;
