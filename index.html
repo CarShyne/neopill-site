@@ -1,72 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEO PILL</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>NEO PILL</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- Pink Matrix Background -->
-<canvas id="matrix"></canvas>
+    <!-- Fullscreen Matrix Canvas -->
+    <canvas id="matrix"></canvas>
 
-<!-- Foreground Content -->
-<div class="container">
-    <img class="logo" src="Assets/NEO.png" alt="NEO Pill Logo">
+    <div class="container">
+        <img class="logo" src="Assets/NEO.png" alt="NEO Pill Logo">
 
-    <h1>NEO PILL</h1>
-    <p class="tagline">Follow the white rabbit...</p>
+        <h1>NEO PILL</h1>
+        <p class="tagline">Follow the white rabbit...</p>
 
-    <p class="mint">
-        Mint Address:<br>
-        <span class="address">
-            J8xvALW2dur2IdtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
-        </span>
-    </p>
-</div>
+        <p class="mint">
+            Mint Address:<br>
+            <span class="address">
+                J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
+            </span>
+        </p>
+    </div>
 
-<!-- Matrix Script -->
-<script>
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-
-function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resize();
-window.onresize = resize;
-
-const letters = "01010100101101010100101100101";
-const matrix = letters.split("");
-
-let fontSize = 18;
-let columns = canvas.width / fontSize;
-let drops = Array(Math.floor(columns)).fill(1);
-
-function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.10)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "#ff00ff";
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-        let text = matrix[Math.floor(Math.random() * matrix.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-            drops[i] = 0;
-        }
-
-        drops[i]++;
-    }
-}
-
-setInterval(draw, 33);
-</script>
-
+    <script src="matrix.js"></script>
 </body>
 </html>
