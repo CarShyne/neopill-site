@@ -1,33 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEO PILL</title>
-<link rel="stylesheet" href="style.css" />
-
-<style>
-    /* Ensures background sits behind content */
-    #matrix {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background: black;
-    }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Neon Matrix -->
+<!-- Pink Matrix Background -->
 <canvas id="matrix"></canvas>
 
+<!-- Foreground Content -->
 <div class="container">
-
     <img class="logo" src="Assets/NEO.png" alt="NEO Pill Logo">
 
     <h1>NEO PILL</h1>
@@ -36,54 +22,50 @@
     <p class="mint">
         Mint Address:<br>
         <span class="address">
-            J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
+            J8xvALW2dur2IdtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
         </span>
     </p>
 </div>
 
+<!-- Matrix Script -->
 <script>
-/* ---------- Pink Matrix Falling Code Background ---------- */
-
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
-function resizeCanvas() {
+function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
+resize();
+window.onresize = resize;
 
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+const letters = "01010100101101010100101100101";
+const matrix = letters.split("");
 
-// Characters for matrix
-const chars = "01010101010100111010011100101010100101";
-const matrixChars = chars.split("");
-
-let fontSize = 16;
+let fontSize = 18;
 let columns = canvas.width / fontSize;
+let drops = Array(Math.floor(columns)).fill(1);
 
-let drops = [];
-for (let x = 0; x < columns; x++) drops[x] = 1;
-
-function drawMatrix() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.09)";
+function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.10)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = "#ff00ff";
     ctx.font = fontSize + "px monospace";
 
     for (let i = 0; i < drops.length; i++) {
-        let text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+        let text = matrix[Math.floor(Math.random() * matrix.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
             drops[i] = 0;
         }
+
         drops[i]++;
     }
 }
 
-setInterval(drawMatrix, 45);
+setInterval(draw, 33);
 </script>
 
 </body>
