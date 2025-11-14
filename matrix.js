@@ -6,7 +6,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const binary = "0101010011100101010011010011100101";
+const binary = "01010111001010110011101010100101";
 const fontSize = 16;
 const columns = canvas.width / fontSize;
 
@@ -24,8 +24,8 @@ function draw() {
   ctx.font = fontSize + "px monospace";
 
   for (let i = 0; i < drops.length; i++) {
-    const text = binary.charAt(Math.floor(Math.random() * binary.length));
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    const char = binary[Math.floor(Math.random() * binary.length)];
+    ctx.fillText(char, i * fontSize, drops[i] * fontSize);
 
     if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
       drops[i] = 0;
