@@ -1,59 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEO PILL ($NEO)</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" type="image/png" href="assets/pill.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEO PILL</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-<div class="container">
 
-    <header>
-        <img src="assets/pill.png" class="logo" alt="NEO Pill Logo">
+    <!-- Neon Matrix Particle Background -->
+    <canvas id="matrix"></canvas>
+
+    <div class="container">
+        <img class="logo" src="assets/NEO.PNG" alt="NEO Pill Logo">
+
         <h1>NEO PILL</h1>
-        <h2>$NEO — Solana Meme Fuel</h2>
-    </header>
+        <p class="tagline">Follow the pink rabbit.</p>
 
-    <section class="card">
-        <h3>Mint Address</h3>
         <p class="mint">
-            J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
+            Mint Address:<br>
+            <span class="address">
+                J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
+            </span>
         </p>
-        <button onclick="copyMint()">Copy Mint</button>
-    </section>
+    </div>
 
-    <section class="card">
-        <h3>About</h3>
-        <p>
-            NEO PILL is a neon-drenched cyberpunk meme token on Solana.  
-            Side effects of $NEO may include enlightenment, temporary euphoria,
-            and uncontrollable gains. Follow the pink rabbit.
-        </p>
-    </section>
-
-    <section class="links">
-        <a href="https://phantom.app/" target="_blank">Phantom</a>
-        <a href="https://jup.ag/swap/NEO-SOL" target="_blank">Jupiter</a>
-        <a href="https://raydium.io/liquidity-pools/" target="_blank">Raydium</a>
-        <a href="https://x.com/neopill33" target="_blank">Twitter/X</a>
-        <a href="https://solscan.io/token/J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S" target="_blank">Solscan</a>
-    </section>
-
-    <footer>
-        <p>© 2025 NEO PILL — Built on Solana ⚡</p>
-    </footer>
-
-</div>
-
-<script>
-function copyMint() {
-    navigator.clipboard.writeText("J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S");
-    alert("Mint address copied!");
-}
-</script>
-
+    <script src="matrix.js"></script>
 </body>
 </html>
