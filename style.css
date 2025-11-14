@@ -1,98 +1,74 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+/* Background canvas for neon matrix */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: black;
+}
 
+/* Page layout */
 body {
     margin: 0;
-    font-family: "Orbitron", sans-serif;
-    background: radial-gradient(circle at top, #000011, #000);
-    color: #fff;
+    padding: 0;
+    background: black;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
     text-align: center;
+    overflow-x: hidden;
 }
 
+/* Container */
 .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
+    position: relative;
+    top: 18vh;
 }
 
+/* Pill logo */
 .logo {
-    width: 140px;
-    filter: drop-shadow(0 0 25px #ff00ff);
-    animation: pulse 2s infinite ease-in-out;
-}
-
-@keyframes pulse {
-    0% { filter: drop-shadow(0 0 5px #ff00ff); }
-    50% { filter: drop-shadow(0 0 25px #ff00ff); }
-    100% { filter: drop-shadow(0 0 5px #ff00ff); }
-}
-
-h1 {
-    margin: 10px 0 0;
-    font-size: 3rem;
-    color: #ff00ff;
-    text-shadow: 0 0 20px #ff00ff;
-}
-
-h2 {
-    font-size: 1.4rem;
-    color: #ff77ff;
+    width: 200px;
+    height: auto;
     margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px #ff00ff);
 }
 
-.card {
-    background: rgba(255, 0, 255, 0.08);
-    border: 1px solid #ff00ff55;
-    border-radius: 12px;
-    padding: 18px;
-    margin: 20px 0;
-    backdrop-filter: blur(10px);
+/* NEO PILL title */
+h1 {
+    font-size: 60px;
+    color: #ff00ff;
+    text-shadow: 0 0 25px #ff00ff;
+    margin: 0;
 }
 
-.card h3 {
-    margin-top: 0;
-    color: #ff66ff;
-    text-shadow: 0 0 10px #ff55ff;
-}
-
-.mint {
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-}
-
-button {
-    background: #ff00ff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
+/* Tagline */
+.tagline {
+    font-size: 22px;
     margin-top: 10px;
-    transition: 0.2s;
+    color: #ffffffcc;
 }
 
-button:hover {
-    background: #ffffff;
+/* Mint address block */
+.mint {
+    font-size: 18px;
+    margin-top: 25px;
 }
 
-.links a {
+.address {
     display: inline-block;
-    margin: 10px;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #fff;
-    border: 1px solid #ff00ff99;
-    transition: 0.2s;
+    margin-top: 8px;
+    font-family: monospace;
+    color: #ffe6ff;
+    text-shadow: 0 0 12px #ff00ff;
 }
 
-.links a:hover {
-    background: #ff00ff;
-    color: #000;
-}
-
-footer {
-    margin-top: 40px;
-    opacity: 0.5;
-    font-size: 0.8rem;
+/* Mobile font scaling */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 42px;
+    }
+    .logo {
+        width: 150px;
+    }
 }
